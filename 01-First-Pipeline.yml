@@ -7,20 +7,17 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImag'e: 'ubuntu-latest'
 
 jobs:
 - job: Job1
   steps:
-  - script: echo  Hello, world changed !
-    displayName: 'Run a one-line script'
-
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-      echo information
-    displayName: 'Run a multi-line script'
-- job: Job2
-  steps:
-  - script: echo hello again
-    displayName: 'Run a one-line script'    
+  - bash: echo  build first Job
+  - bash: echo $(build.buildNumber)
+  - bash: echo $(build.SourceDirectory)
+  - bash: ls -R $(build.SourceDirectory)
+  - bash: echo $(build.DefaultworkingDirectory)
+  - bash: ls -R $(build.DefaultworkingDirectory)
+  - bash: echo $(build.artifactstagingdirectory)
+  - bash: ls -R $(build.artifactstagingdirectory)
+  - bash: echo $(build.buildNumber)
