@@ -21,3 +21,5 @@ jobs:
   - bash: echo $(build.artifactstagingdirectory)
   - bash: ls -R $(build.artifactstagingdirectory)
   - bash: echo $(build.buildNumber)
+  - bash: echo $(build.Build.SourceBranch)
+  - bash: echo $(build.Build.SourceBranchName)
